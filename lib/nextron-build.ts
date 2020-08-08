@@ -19,6 +19,7 @@ const args = arg({
   '--armv7l': Boolean,
   '--arm64': Boolean,
   '--config': String,
+  '--args': String,
   '-h': '--help',
   '-v': '--version',
   '-w': '--win',
@@ -100,6 +101,9 @@ function createBuilderArgs() {
   if (args['--config']) {
     results.push('--config');
     results.push(args['--config'] || 'electron-builder.yml');
+  }
+  if (args['--args']) {
+    results.push(args['--args'])
   }
   if (args['--all']) {
     results.push('-wml');
